@@ -3,7 +3,7 @@
 </p>
 
 <h1>On-Premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within an Azure virtual machine.<br />
+This tutorial outlines the implementation of on-premises Active Directory within two Azure virtual machines.<br/>
 
 
 <h2>Environments and Technologies Used</h2>
