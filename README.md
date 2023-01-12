@@ -2,8 +2,8 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+<h1>On-Premises Active Directory Deployed in the Cloud (Azure)</h1>
+This tutorial outlines the implementation of on-premises Active Directory within an Azure virtual machine.<br />
 
 
 <h2>Environments and Technologies Used</h2>
@@ -220,4 +220,4 @@ Lets log into Client-1 with one of the users that were created (in our instance 
 
 
 
-🎉Congratulations! You have implementated on-premises Active Directory and created users within Azure Virtual Machines!🎉
+🎉Congratulations! You have implementated on-premises Active Directory and created users within an Azure virtual machine!🎉
