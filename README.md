@@ -26,10 +26,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Create two virtual machines
 	- If you need help creating your virtual machines, please see my tutorial [here](https://github.com/roslyndwilliams/virtual-machine)
-		- 1st virtual machine will be the Domain Controller
-			- Name: DC-1
-			- Image: Windows Server 2022
-			- Take note of the Virtual Network (vNet) that gets created at this time
+	- The first virtual machine will be the Domain Controller
+		- Name: DC-1
+		- Image: Windows Server 2022
+		- Take note of the virtual network (vNet) that is automatically created
        
 <p align="center">
 <img src="https://i.imgur.com/mrpBWtM.png" height="70%" width="70%" alt="Azure Free Account"/>
@@ -37,31 +37,34 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 
 	- Set DC-1's Virtual Network Interface Card (vNIC) private IP address to be static
-		- Go to DC-1's network settings > select Networking > select the link next to Network Interface
-		- IP Configurations > ipconfig1
-		- Change the assignment from dynamic to static (this ensures DC-1's IP address will not change)
+		- Go to DC-1's network settings
+		- Select Networking
+		- Select the link next to Network Interface
+		- Select IP Configurations > ipconfig1
+		- Change the assignment from dynamic to static 
+			- This ensures DC-1's IP address will not change
 	   
 <p align="center">
 <img src="https://i.imgur.com/xcyLUOG.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/ZaWdzTl.png" height="70%" width="70%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/Vn0UhWm.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
 
-		- 2nd virtual machine will be the Client
-			- Name: Client-1
-			- Image: Windows 10 Pro
-			- Use the same resource group and vNet as DC-1
+	- The second virtual machine will be the Client
+		- Name: Client-1
+		- Image: Windows 10 Pro
+		- Use the same resource group and vNet as DC-1
 
 <p align="center">
 <img src="https://i.imgur.com/Vf7yeY1.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/3DK41Cr.png" height="70%" width="70%" alt="Azure Free Services"/> 
 
 
-<h3>Step 2: Ensure Connectivity Between Client and Domain Controller</h3>
+<h3>Step 2: Ensure Connectivity Between the Client and Domain Controller</h3>
 
 - Login to Client-1 using Microsoft Remote Desktop
 - Search for Command Prompt and open it
-- Ping DC-1's private IP Address (in our instance, 10.1.0.4)
-	- Type "ping - t 10.1.0.4" into the command-line interface
-	- Due to the firewall, the request is timing out
+- Ping DC-1's private IP Address (for example, 10.1.0.4)
+	- Type "ping -t 10.1.0.4" into the command-line interface
+	- The ping request continually  times out due to the firewall settings
 		- To fix this, we need to enable ICMPv4 on DC-1's local Windows firewall
 
 <p align="center">
@@ -76,7 +79,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/bw6eoLh.png" height="50%" width="50%" alt="Azure Free Account"/> <img src="https://i.imgur.com/BY1Ohgb.png" height="80%" width="80%" alt="Azure Free Services"/>
 </p>
 
-- Log back into Client-1 and the command line will begin pinging DC-1 successfully
+- Log back into Client-1 and the command line will automatically begin pinging DC-1 successfully
     
 <p align="center">
 <img src="https://i.imgur.com/890WIJB.png" height="70%" width="70%" alt="Azure Free Account"/> 
@@ -96,13 +99,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/DQRVNnm.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/RpzngRi.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
-	- At the top right of the Server Manager Dashboard, click on the flag
-		- Select "Promote This Server to a Domain Controller"
+- At the top right of the Server Manager Dashboard, click on the flag
+- Select "Promote This Server to a Domain Controller"
 
 <p align="center">
 <img src="https://i.imgur.com/GOYiTFe.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
- - Select Add a New Forest
+ - Select "Add a New Forest"
  	- Root domain name: mydomain.com
 - Select Next
 - Create a password
